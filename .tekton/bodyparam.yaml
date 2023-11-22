@@ -16,7 +16,7 @@ metadata:
     pipelinesascode.tekton.dev/on-cel-expression: |
       body.pull_request.user.login == "savitaashture"
     #  body.pull_request.base.ref == "main" && 
-        body.pull_request.user.login == "savitaashture" && 
+    #    body.pull_request.user.login == "savitaashture" && 
     #    body.action == "synchronize" && 
     #    headers['x-github-hook-installation-target-type'] == 'integration'      
 spec:
