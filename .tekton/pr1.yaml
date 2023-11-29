@@ -2,36 +2,37 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  generateName: pipelines-as-code-source-
+  name: pr-from-different-branch-another
   annotations:
-    pipelinesascode.tekton.dev/on-target-branch: "[main]"
     pipelinesascode.tekton.dev/on-event: "[pull_request, push]"
-    pipelinesascode.tekton.dev/max-keep-runs: "1"
+    # pipelinesascode.tekton.dev/on-event: "[incoming]"
+    pipelinesascode.tekton.dev/on-target-branch: "[retest-push]"
+    # pipelinesascode.tekton.dev/on-target-branch: "[refs/heads/*]" 
+    # pipelinesascode.tekton.dev/task: "git-clone"
+    # How many runs we want to keep.
+    # pipelinesascode.tekton.dev/max-keep-runs: "2"
+    # pipelinesascode.tekton.dev/on-cel-expression: |
+      # event == "pull_request" && target_branch == "main" && "frontend/***".pathChanged()
 spec:
   params:
     - name: repo_url
       value: "{{ repo_url }}"
-    - name: source_url
-      value: "{{ source_url }}"
-    - name: source_branch
-      value: "{{ source_branch }}"
-    - name: target_branch
-      value: "{{ target_branch }}"
+    - name: revision
+      value: "{{ revision }}"
   pipelineSpec:
     params:
       - name: repo_url
-      - name: source_url
-      - name: source_branch
-      - name: target_branch
+      - name: revision    
     tasks:
-      - name: params
+      - name: noop-task
         taskSpec:
           steps:
-            - name: test-standard-params-value
-              image: registry.access.redhat.com/ubi9/ubi-micro
+            - name: noop-task
+              image: ubuntu
               script: |
-                echo "Hello from main"
-                echo "{{ repo_url }}--"
-                echo "{{ source_url }}--"
-                echo "{{ source_branch }}--"
-                echo "{{ target_branch }}--"
+                #! /bin/bash
+                echo $(params.revision)
+                echo $(params.repo_url)
+                echo {{ company }}
+                sleep 20
+                exit 0
