@@ -1,14 +1,1 @@
-dxc# Pipelines-as-Code - Demo Repository
-
-a badly written hello world in Golang used for demo using [Pipelines-as-Code](https://pipelinesascode.com)
-deade
-hdgehj
-kjhwrejk
-zdsekemkwd
-wjewhjk
-ekwr
-ekjrw
-aewr
-fdd
-dkjew
-wnwkj
+Pipelines-as-Code - Demo Repository for retest-push branch
