@@ -11,8 +11,8 @@ metadata:
     # pipelinesascode.tekton.dev/task: "git-clone"
     # How many runs we want to keep.
     # pipelinesascode.tekton.dev/max-keep-runs: "2"
-    # pipelinesascode.tekton.dev/on-cel-expression: |
-        # event == "pull_request" && target_branch == "main" && event_title.startsWith("[DOWNSTREAM]")
+    pipelinesascode.tekton.dev/on-cel-expression: |
+        event == "pull_request" && event_title.startsWith("[DOWNSTREAM]")
 spec:
   params:
     - name: repo_url
