@@ -12,7 +12,7 @@ metadata:
     # How many runs we want to keep.
     # pipelinesascode.tekton.dev/max-keep-runs: "2"
     pipelinesascode.tekton.dev/on-cel-expression: |
-      files.all.exists(x, x.matches('.tekton/'))
+      files.modified.exists(x, x.matches('.tekton/'))
 spec:
   params:
     - name: repo_url
