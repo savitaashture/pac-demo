@@ -11,21 +11,18 @@ metadata:
     # pipelinesascode.tekton.dev/task: "git-clone"
     # How many runs we want to keep.
     # pipelinesascode.tekton.dev/max-keep-runs: "2"
-    pipelinesascode.tekton.dev/on-cel-expression: |
-        event_title.startsWith("Merge pull request")
+    # pipelinesascode.tekton.dev/on-cel-expression: |
+        # event_title.startsWith("Merge pull request")
 spec:
   params:
     - name: repo_url
       value: "{{ repo_url }}"
     - name: revision
-      value: "{{ revision }}"
-    - name: title
-      value: "{{ event_title }}"      
+      value: "{{ revision }}"   
   pipelineSpec:
     params:
       - name: repo_url
-      - name: revision   
-      - name: title
+      - name: revision
     tasks:
       - name: noop-task
         taskSpec:
@@ -37,7 +34,6 @@ spec:
                 echo $(params.revision)
                 echo $(params.repo_url)
                 echo "************"
-                echo $(params.title)
                 echo "************"
                 echo {{ company }}
                 echo {{ body.pull_request.title }}
