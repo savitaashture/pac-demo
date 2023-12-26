@@ -59,7 +59,6 @@ spec:
       - name: golangci-lint
         taskRef:
           name: golangci-lint
-          kind: ClusterTask
         runAfter:
           - fetch-repository
         params:
