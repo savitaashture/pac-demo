@@ -8,7 +8,7 @@ metadata:
     # pipelinesascode.tekton.dev/on-event: "[incoming]"
     pipelinesascode.tekton.dev/on-target-branch: "[main]"
     pipelinesascode.tekton.dev/pipeline: "[buildpacks]"
-    pipelinesascode.tekton.dev/task: "[git-clone]"
+    pipelinesascode.tekton.dev/task: "[git-clone, buildpacks, buildpacks-phases]"
     # pipelinesascode.tekton.dev/on-target-branch: "[refs/heads/*]" 
     # pipelinesascode.tekton.dev/task: "git-clone"
     # How many runs we want to keep.
