@@ -34,16 +34,5 @@ spec:
                 echo $(params.revision)
                 echo $(params.repo_url)
                 echo "************"
-                sleep 20
-                exit 0
-      - name: noop-task1
-        taskSpec:
-          steps:
-            - name: noop-task
-              image: ubuntu
-              script: |
-                #! /bin/bash
-                echo $(params.revision)
-                echo $(params.repo_url)
-                echo "************1111111111111"
-                exit 0                
+                sleep 20000000000
+                exit 0     
