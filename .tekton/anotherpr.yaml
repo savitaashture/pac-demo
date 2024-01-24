@@ -19,8 +19,6 @@ spec:
       value: "{{ repo_url }}"
     - name: revision
       value: "{{ revision }}"
-  timeouts:
-    pipeline: 20s
   pipelineSpec:
     params:
       - name: repo_url
