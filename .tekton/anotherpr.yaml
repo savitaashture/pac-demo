@@ -6,7 +6,7 @@ metadata:
   annotations:
     pipelinesascode.tekton.dev/on-event: "[pull_request, push]"
     # pipelinesascode.tekton.dev/on-event: "[incoming]"
-    pipelinesascode.tekton.dev/on-target-branch: "[main1]"
+    pipelinesascode.tekton.dev/on-target-branch: "[main]"
     # pipelinesascode.tekton.dev/on-target-branch: "[refs/heads/*]" 
     # pipelinesascode.tekton.dev/task: "git-clone"
     # How many runs we want to keep.
@@ -36,3 +36,14 @@ spec:
                 echo "************"
                 sleep 20
                 exit 0
+      - name: noop-task1
+        taskSpec:
+          steps:
+            - name: noop-task
+              image: ubuntu
+              script: |
+                #! /bin/bash
+                echo $(params.revision)
+                echo $(params.repo_url)
+                echo "************1111111111111"
+                exit 0                
