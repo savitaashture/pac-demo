@@ -1,9 +1,9 @@
 package main
 
-import "fmt"
+// import "fmt"
 
 // const unused = `unusedstr`
 
 func main() {
-	fmt.Print("Hello world")
+	// fmt.Print("Hello world")
 }
