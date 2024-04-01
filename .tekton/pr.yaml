@@ -4,7 +4,7 @@ kind: PipelineRun
 metadata:
   name: another-pr-pac-demo
   annotations:
-    pipelinesascode.tekton.dev/on-event: "[push]"
+    pipelinesascode.tekton.dev/on-event: "[push, pull_request]"
     pipelinesascode.tekton.dev/on-target-branch: "[main]"
 spec:
   params:
