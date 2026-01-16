@@ -27,6 +27,7 @@ metadata:
     # how many runs we want to keep attached to this event
     pipelinesascode.tekton.dev/max-keep-runs: "5"
 spec:
+  managedBy: kueue.x-k8s.io/multikueue
   pipelineSpec:    
     tasks:
       - name: say-hello
