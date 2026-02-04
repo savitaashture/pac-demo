@@ -37,7 +37,7 @@ spec:
               script: |
                 #!/bin/sh
                 echo "Hello, World!"
-                sleep 30
+                sleep 5
       - name: say-goodbye
         runAfter:
           - say-hello
